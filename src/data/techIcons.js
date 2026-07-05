@@ -1,0 +1,71 @@
+// Maps a skill name to a Simple Icons slug (https://simpleicons.org) so we can
+// show a real brand logo. cdn.simpleicons.org serves each icon as an SVG for
+// free, no API key or attribution required.
+const SLUGS = {
+  react: 'react',
+  javascript: 'javascript',
+  typescript: 'typescript',
+  'tailwind css': 'tailwindcss',
+  tailwindcss: 'tailwindcss',
+  'node.js': 'nodedotjs',
+  nodejs: 'nodedotjs',
+  express: 'express',
+  'express.js': 'express',
+  python: 'python',
+  postgresql: 'postgresql',
+  mongodb: 'mongodb',
+  redis: 'redis',
+  docker: 'docker',
+  kubernetes: 'kubernetes',
+  aws: 'amazonaws',
+  'amazon web services': 'amazonaws',
+  git: 'git',
+  github: 'github',
+  'next.js': 'nextdotjs',
+  nextjs: 'nextdotjs',
+  vue: 'vuedotjs',
+  'vue.js': 'vuedotjs',
+  angular: 'angular',
+  html: 'html5',
+  html5: 'html5',
+  css: 'css3',
+  css3: 'css3',
+  sass: 'sass',
+  graphql: 'graphql',
+  firebase: 'firebase',
+  figma: 'figma',
+  linux: 'linux',
+  nginx: 'nginx',
+  mysql: 'mysql',
+  'socket.io': 'socketdotio',
+  vite: 'vite',
+  webpack: 'webpack',
+  jest: 'jest',
+  php: 'php',
+  laravel: 'laravel',
+  django: 'django',
+  flutter: 'flutter',
+  swift: 'swift',
+  kotlin: 'kotlin',
+  java: 'openjdk',
+  'c++': 'cplusplus',
+  'c#': 'csharp',
+  go: 'go',
+  rust: 'rust',
+  redux: 'redux',
+  bootstrap: 'bootstrap',
+  npm: 'npm',
+  jira: 'jira',
+  postman: 'postman',
+  vercel: 'vercel',
+  netlify: 'netlify',
+  supabase: 'supabase',
+  prisma: 'prisma'
+};
+
+export function getTechIconUrl(name) {
+  const key = (name || '').toLowerCase().trim();
+  const slug = SLUGS[key];
+  if (!slug) return null;
+  return `https://cdn.simpleicons.org/${slug}`;
+}
