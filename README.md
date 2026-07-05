@@ -1,4 +1,4 @@
-# Alex Rivera — Portfolio (React)
+# Shahariat — Portfolio (React)
 
 A React + Vite rebuild of the portfolio site: same design (blue theme, hero,
 about, skills, education, experience, projects, contact) plus a project detail
@@ -24,18 +24,6 @@ npm run preview   # preview the production build locally
   Education, Experience, and Projects, and to edit your Profile (name, bio,
   resume link, socials, contact info)
 
-## Dashboard password
-
-The first time you visit `/dashboard`, you'll be asked to set a password —
-after that, every visit requires it. It's hashed (SHA-256) before being stored,
-so it isn't sitting in plain text, but **this is a deterrent, not real
-security**: everything lives in your own browser's `localStorage`, so someone
-with enough technical know-how could clear it and set a new password. If you
-need real access control, that requires a small backend with proper
-authentication — happy to help wire that up if you get there.
-
-Forgot your password? Open devtools → Console and run
-`localStorage.removeItem('pf_dash_pwhash')`, then refresh to set a new one.
 
 ## Tech stack logos
 
