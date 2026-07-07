@@ -1,2 +1,8 @@
-dist/
-node_modules/
+node_modules
+dist
+public
+.DS_Store
+*.local
+src/assets
+src/data/portfolioData.js
+src/data/projects.js

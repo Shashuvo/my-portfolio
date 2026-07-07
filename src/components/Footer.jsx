@@ -1,12 +1,12 @@
-import { Link } from 'react-router-dom';
-
-export default function Footer({ name }) {
+export default function Footer({ data }) {
   return (
-    <footer className="site-footer">
-      <div className="wrap footer-inner">
-        <div className="footer-note">© {new Date().getFullYear()} {name}. Built with React.</div>
-        <div className="footer-note"><Link to="/dashboard">Manage content →</Link></div>
-      </div>
+    <footer
+      className="flex items-center justify-center p-7 border-t text-[13.5px] relative z-[1]"
+      style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}
+    >
+      <p>
+        © {new Date().getFullYear()} {data.profile.name}. Built with React.
+      </p>
     </footer>
   );
 }

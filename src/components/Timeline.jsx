@@ -1,52 +1,27 @@
-import Reveal from './Reveal';
+import Reveal from "./Reveal";
 
-export function EducationTimeline({ items }) {
+export default function Timeline({ id, title, eyebrow, icon, items, renderItem }) {
+  if (!items || items.length === 0) return null;
   return (
-    <section id="education">
-      <div className="wrap">
-        <div className="eyebrow">Education</div>
-        <h2 className="sec-title">Academic background</h2>
-        <Reveal>
-          <div className="timeline">
-            {items.map((e) => (
-              <div className="tl-item" key={e.id}>
-                <div className="tl-date">{e.duration}</div>
-                <div>
-                  <div className="tl-title">{e.degree}</div>
-                  <div className="tl-sub">{e.institution}</div>
-                  {e.details ? <div className="tl-desc">{e.details}</div> : null}
-                </div>
-              </div>
-            ))}
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-export function ExperienceTimeline({ items }) {
-  return (
-    <section id="experience">
-      <div className="wrap">
-        <div className="eyebrow">Experience</div>
-        <h2 className="sec-title">Where I've worked</h2>
-        <Reveal>
-          <div className="timeline">
-            {items.map((x) => (
-              <div className="tl-item" key={x.id}>
-                <div className="tl-date">{x.duration}</div>
-                <div>
-                  <div className="tl-title">{x.role}</div>
-                  <div className="tl-sub">{x.company}</div>
-                  <ul className="tl-desc">
-                    {(x.points || []).map((pt, i) => <li key={i}>{pt}</li>)}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Reveal>
+    <section id={id} className="section">
+      <Reveal className="section-head">
+        <span className="section-eyebrow">{eyebrow}</span>
+        <h2 className="section-title">{title}</h2>
+      </Reveal>
+      <div
+        className="relative pl-7 flex flex-col gap-9 before:content-[''] before:absolute before:left-[11px] before:top-1.5 before:bottom-1.5 before:w-0.5 before:bg-gradient-to-b before:from-brand-1 before:to-brand-2 before:opacity-40"
+      >
+        {items.map((item, i) => (
+          <Reveal key={i} className="relative" delay={i * 100}>
+            <div
+              className="absolute -left-7 top-0 w-6 h-6 rounded-full bg-gradient-to-br from-brand-1 to-brand-2 text-white flex items-center justify-center"
+              style={{ boxShadow: "0 0 0 4px var(--bg)" }}
+            >
+              {icon}
+            </div>
+            <div>{renderItem(item)}</div>
+          </Reveal>
+        ))}
       </div>
     </section>
   );

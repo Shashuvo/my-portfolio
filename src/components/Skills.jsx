@@ -1,55 +1,35 @@
-import { useState } from 'react';
-import { getTechIconUrl } from '../data/techIcons';
-import { Icons } from './Icons';
-import Reveal from './Reveal';
+import { Code2 } from "lucide-react";
+import Reveal from "./Reveal";
+import TechBadge from "./TechBadge";
+import { getTech } from "./techIcons";
 
-const CATEGORY_ORDER = ['Frontend', 'Backend', 'Tools'];
-
-function TechTile({ skill }) {
-  const iconUrl = getTechIconUrl(skill.name);
-  const [imgFailed, setImgFailed] = useState(false);
-
+export default function Skills({ data }) {
   return (
-    <div className="tech-tile">
-      {iconUrl && !imgFailed ? (
-        <img src={iconUrl} alt={skill.name} loading="lazy" onError={() => setImgFailed(true)} />
-      ) : (
-        <div className="fallback-icon">{Icons.code}</div>
-      )}
-      <div className="tname">{skill.name}</div>
-      <div className="bar-track"><div className="bar-fill" style={{ width: `${skill.level}%` }} /></div>
-    </div>
-  );
-}
+    <section id="skills" className="section section-alt">
+      <Reveal className="section-head">
+        <span className="section-eyebrow">Skills</span>
+        <h2 className="section-title">Tools I reach for</h2>
+      </Reveal>
 
-export default function Skills({ skills }) {
-  const available = ['All', ...CATEGORY_ORDER.filter((c) => skills.some((s) => s.category === c))];
-  const [filter, setFilter] = useState('All');
-  const visible = filter === 'All' ? skills : skills.filter((s) => s.category === filter);
-
-  return (
-    <section id="skills">
-      <div className="wrap">
-        <div className="eyebrow">Skills</div>
-        <h2 className="sec-title">My tech stack</h2>
-        <div className="tech-filter">
-          {available.map((c) => (
-            <button
-              key={c}
-              className={filter === c ? 'active' : ''}
-              onClick={() => setFilter(c)}
-            >
-              {c}
-            </button>
-          ))}
-        </div>
-        <Reveal>
-          <div className="tech-grid">
-            {visible.map((s) => (
-              <TechTile skill={s} key={s.id} />
-            ))}
-          </div>
-        </Reveal>
+      <div className="flex flex-col gap-9">
+        {data.skills.map((group, gi) => (
+          <Reveal key={group.category} delay={gi * 90}>
+            <h3 className="flex items-center gap-2 text-lg mb-[18px]" style={{ color: "var(--blue-1)" }}>
+              <Code2 size={16} /> {group.category}
+            </h3>
+            <div className="flex flex-wrap gap-4">
+              {group.items.map((item) => (
+                <div
+                  key={item}
+                  className="card flex items-center gap-3 py-4 px-[22px] text-[15px] font-semibold min-w-[168px] transition-transform hover:-translate-y-1.5 hover:border-[color:var(--blue-1)] hover:shadow-[0_14px_30px_rgba(15,150,212,0.16)]"
+                >
+                  <TechBadge tech={item} size={52} />
+                  <span>{getTech(item).label}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        ))}
       </div>
     </section>
   );
