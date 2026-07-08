@@ -3,6 +3,7 @@ import { AnimatePresence } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import Stats from "./components/Stats";
 import Skills from "./components/Skills";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
@@ -55,6 +56,7 @@ function AppInner() {
         {view.type === "home" ? (
           <div key="home">
             <Hero data={data} onNavigate={navigate} />
+            <Stats data={data} />
             <About data={data} />
             <Skills data={data} />
             <Education data={data} />

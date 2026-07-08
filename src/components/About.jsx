@@ -11,7 +11,7 @@ const ABOUT_ICONS = {
 
 export default function About({ data }) {
   return (
-    <section id="about" className="section">
+    <section id="about" className="section pt-16">
       <Reveal className="section-head">
         <span className="section-eyebrow">About Me</span>
         <h2 className="section-title">The person behind the code</h2>

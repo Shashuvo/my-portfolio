@@ -29,19 +29,22 @@ export default function Navbar({ theme, toggleTheme, onNavigate }) {
 
   return (
     <header
-      className={`sticky top-0 z-40 border-b transition-colors duration-300 ${
-        scrolled
-          ? "backdrop-blur-lg border-[color:var(--border)] bg-[color-mix(in_srgb,var(--bg)_78%,transparent)]"
-          : "border-transparent bg-transparent"
-      }`}
+      className={`sticky top-0 z-40 border-b transition-colors duration-300 ${scrolled
+        ? "backdrop-blur-lg border-[color:var(--border)] bg-[color-mix(in_srgb,var(--bg)_78%,transparent)]"
+        : "border-transparent bg-transparent"
+        }`}
     >
       <div className="max-w-[1120px] mx-auto px-6 py-4 flex items-center justify-between gap-6">
         <button
-          className="flex items-center gap-2 bg-transparent border-none font-display font-bold text-[17px] tracking-wide"
+          className="flex items-center gap-2 bg-transparent border-none font-display font-bold text-[20px] tracking-wide"
           style={{ color: "var(--text)" }}
           onClick={() => go("home")}
         >
-          <span className="w-[9px] h-[9px] rounded-full bg-gradient-to-br from-brand-1 to-brand-2 shadow-[0_0_12px_theme(colors.brand.2)] animate-pulse-dot" />
+          <motion.span
+            className="w-3 h-3 rounded-full bg-gradient-to-br from-brand-1 to-brand-2 shadow-[0_0_20px_6px_rgba(15,150,212,0.7)]"
+            animate={{ scale: [1, 0.5, 1], opacity: [1, 0.35, 1] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+          />
           Shahariat
         </button>
 
@@ -49,7 +52,7 @@ export default function Navbar({ theme, toggleTheme, onNavigate }) {
           {NAV_LINKS.map((l) => (
             <button
               key={l.id}
-              className="group relative bg-transparent border-none px-3.5 py-2 rounded-full text-sm font-medium transition-colors"
+              className="group relative bg-transparent border-none px-3.5 py-2 rounded-full text-[15px] font-medium transition-colors"
               style={{ color: "var(--text-muted)" }}
               onClick={() => go(l.id)}
             >

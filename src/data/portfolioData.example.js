@@ -31,6 +31,13 @@ const portfolioData = {
     ],
   },
 
+  stats: [
+    { label: "Years Learning", value: 3, suffix: "+" },
+    { label: "Projects Built", value: 15, suffix: "+" },
+    { label: "GitHub Commits", value: 250, suffix: "+" },
+    { label: "Codeforces Problems Solved", value: 250, suffix: "" },
+  ],
+
   skills: [
     { category: "Frontend", items: ["react", "javascript", "typescript", "html5", "css3", "tailwind"] },
     { category: "Backend", items: ["nodejs", "express", "mongodb", "postgresql"] },

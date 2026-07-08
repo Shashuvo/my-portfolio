@@ -23,7 +23,7 @@ export default function Hero({ data, onNavigate }) {
   ].filter((s) => s.href);
 
   return (
-    <section id="home" className="relative overflow-hidden px-6 pt-[72px] pb-[60px] z-[1]">
+    <section id="home" className="relative overflow-hidden px-6 pt-24 pb-16 z-[1]">
       <motion.div
         className="absolute rounded-full blur-[90px] opacity-35 pointer-events-none w-[420px] h-[420px] bg-brand-1 -top-[120px] -right-[100px]"
         animate={{ x: [0, -30, 0], y: [0, 30, 0] }}
@@ -35,31 +35,31 @@ export default function Hero({ data, onNavigate }) {
         transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="relative max-w-[1120px] mx-auto grid grid-cols-1 md:grid-cols-[1.15fr_0.85fr] gap-12 items-center min-h-[66vh] text-center md:text-left">
-        <div className="flex flex-col gap-4 items-center md:items-start">
+      <div className="relative max-w-[1160px] mx-auto grid grid-cols-1 md:grid-cols-[1.15fr_0.85fr] gap-16 items-center min-h-[74vh] text-center md:text-left">
+        <div className="flex flex-col gap-6 items-center md:items-start">
           <Reveal
             className="inline-flex items-center gap-2 text-[13px] font-semibold px-3.5 py-1.5 rounded-full backdrop-blur-md border"
             style={{ color: "var(--blue-1)", background: "var(--surface)", borderColor: "var(--border)" }}
           >
             <Sparkles size={14} /> Welcome to my portfolio
           </Reveal>
-          <Reveal as="h1" className="font-bold leading-[1.1] text-[clamp(32px,5vw,52px)]" delay={80}>
+          <Reveal as="h1" className="font-bold leading-[1.08] text-[clamp(38px,6vw,66px)]" delay={80}>
             Hi, I'm <span className="gradient-text">{data.profile.name}</span>
           </Reveal>
           <Reveal
             as="p"
-            className="font-semibold text-[clamp(18px,2.4vw,24px)] min-h-[30px]"
+            className="font-semibold text-[clamp(20px,2.8vw,28px)] min-h-[36px]"
             style={{ color: "var(--blue-2)" }}
             delay={140}
           >
             <span>{typed}</span>
             <span className="animate-blink" style={{ color: "var(--blue-1)" }}>|</span>
           </Reveal>
-          <Reveal as="p" className="max-w-[480px] text-base" delay={200}>
+          <Reveal as="p" className="max-w-[520px] text-lg" delay={200}>
             {data.profile.tagline}
           </Reveal>
 
-          <Reveal className="flex gap-3.5 flex-wrap mt-2" delay={260}>
+          <Reveal className="flex gap-3.5 flex-wrap mt-3" delay={260}>
             <motion.a
               className="btn btn-primary"
               href={data.profile.resumeUrl || "#"}
@@ -102,7 +102,7 @@ export default function Hero({ data, onNavigate }) {
         </div>
 
         <Reveal className="flex justify-center order-first md:order-none" delay={160}>
-          <div className="relative w-[min(340px,80vw)] aspect-square flex items-center justify-center">
+          <div className="relative w-[min(400px,84vw)] aspect-square flex items-center justify-center">
             <motion.div
               className="absolute inset-0 rounded-full blur-[1px] bg-[conic-gradient(from_0deg,var(--blue-1),var(--blue-2),transparent,var(--blue-1))]"
               animate={{ rotate: 360 }}

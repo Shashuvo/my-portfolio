@@ -10,6 +10,7 @@ export default function useTheme() {
 
   useEffect(() => {
     window.localStorage.setItem(THEME_KEY, theme);
+    document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
   const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));

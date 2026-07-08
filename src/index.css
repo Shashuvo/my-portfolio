@@ -48,7 +48,8 @@
     @apply font-body min-h-screen relative;
     isolation: isolate;
   }
-  .app-root[data-theme="dark"] {
+  .app-root[data-theme="dark"],
+  :root[data-theme="dark"] {
     --bg: #060a12;
     --bg-alt: #0a1120;
     --surface: rgba(16, 27, 46, 0.6);
@@ -60,7 +61,8 @@
     background: var(--bg);
     color: var(--text);
   }
-  .app-root[data-theme="light"] {
+  .app-root[data-theme="light"],
+  :root[data-theme="light"] {
     --bg: #f6fafd;
     --bg-alt: #edf4f9;
     --surface: rgba(255, 255, 255, 0.7);

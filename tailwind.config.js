@@ -21,10 +21,6 @@ export default {
           "0%, 100%": { backgroundPosition: "0% center" },
           "50%": { backgroundPosition: "100% center" },
         },
-        pulseDot: {
-          "0%, 100%": { transform: "scale(1)" },
-          "50%": { transform: "scale(1.35)" },
-        },
         spinSlow: { to: { transform: "rotate(360deg)" } },
       },
       animation: {
